@@ -40,8 +40,7 @@ class Program
 
         //--------------------------------------------- 
 
-        Cylinder z2 = new Cylinder(15.0, 15.5); // Param1 = Radius, Param2 = Höhe
-
+        Cylinder z2 = new Cylinder(15.0, 15.5); 
         double volume2 = z2.GetVolume();
         double surfaceArea2 = z2.GetSurfaceArea();
 
@@ -52,10 +51,34 @@ class Program
 
         //---------------------------------------------
 
-        double surfaceArea3 = Cylinder.GetSurfaceArea(25.25, 20.0); // Param1 = Radius, Param2 = Höhe
+        double surfaceArea3 = Cylinder.GetSurfaceArea(25.25, 20.0); 
 
         Console.WriteLine("Cylinder 03:");
         Console.WriteLine("surface area = " + surfaceArea3);
         Console.WriteLine();
+        
+        //---------------------------------------------
+
+        Cuboid myCuboid = new Cuboid(3, 4, 5);
+        Console.WriteLine($"Bodenfläche: {myCuboid.GetBaseArea()}, Volumen: {myCuboid.GetVolume()}, Oberfläche: {myCuboid.GetSurfaceArea()}, Diagonale: {Math.Round(myCuboid.GetDiagonal(), 2)}");
+
+        Cylinder myCylinder = new Cylinder(5, 10);
+        
+        Cuboid boundingBox = myCylinder.GetBoundingCuboid();
+        Console.WriteLine($"Zylinder passt exakt in Quader L:{boundingBox.Length}, B:{boundingBox.Width}, H:{boundingBox.Height}");
+
+        Cuboid testCuboid = new Cuboid(8, 8, 12); 
+        
+        if (myCylinder.FitsInside(testCuboid))
+        {
+            Console.WriteLine("True");
+        }
+        else
+        {
+            Cuboid fittingCuboid = myCylinder.GetInscribedCuboid();
+            Console.WriteLine($"False L:{Math.Round(fittingCuboid.Length, 2)}, B:{Math.Round(fittingCuboid.Width, 2)}, H:{Math.Round(fittingCuboid.Height, 2)}");
+        }
+        
+        Console.ReadLine();
     }
 }

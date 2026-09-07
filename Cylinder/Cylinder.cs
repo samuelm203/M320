@@ -2,8 +2,20 @@
 
 public class Cylinder
 {
-    public double Radius;
-    public double Height;
+    private double _radius; 
+    private double _height; 
+    
+    public double Radius
+    {
+        get { return _radius; }
+        set { _radius = value; }
+    }
+    
+    public double Height
+    {
+        get { return _height; }
+        set { _height = value; }
+    }
 
     public Cylinder()
     {
@@ -73,5 +85,25 @@ public class Cylinder
     public double GetLateralArea()
     {
         return 2 * Math.PI * Radius * Height;
-    } 
+    }
+    
+    public Cuboid GetBoundingCuboid()
+    {
+        double side = Radius * 2;
+        return new Cuboid(side, side, Height);
+    }
+
+    public Cuboid GetInscribedCuboid()
+    {
+        double side = Radius * Math.Sqrt(2);
+        return new Cuboid(side, side, Height);
+    }
+
+    public bool FitsInside(Cuboid cuboid)
+    {
+        double cuboidBaseDiagonal = Math.Sqrt(cuboid.Length * cuboid.Length + cuboid.Width * cuboid.Width);
+        double cylinderDiameter = 2 * Radius;
+
+        return (cuboid.Height <= Height) && (cuboidBaseDiagonal <= cylinderDiameter);
+    }
 }
