@@ -2,7 +2,7 @@
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main_ignorieren(string[] args)
     {
         Rectangle rec = new Rectangle();
         rec.Width = 10;
