@@ -57,21 +57,6 @@ public class Cylinder
         return 2 * Math.PI * Radius;
     }
     
-    public void SetRadius(double radius)
-    {
-        Radius = radius;
-    }
-    
-    public void SetHeight(double height)
-    {
-        Height = height;
-    }
-    
-    public void SetDiameter(double diameter)
-    {
-        Radius = diameter / 2;
-    }
-    
     public static double GetSurfaceArea(double radius, double height)
     {
         return 2 * Math.PI * radius * (radius + height);
