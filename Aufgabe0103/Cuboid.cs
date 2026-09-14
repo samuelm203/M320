@@ -1,0 +1,35 @@
+﻿namespace M320.Cylinder;
+
+public class Cuboid
+{
+    public double Length { get; }
+    public double Width { get; }
+    public double Height { get; }
+
+    public Cuboid(double length, double width, double height)
+    {
+        Length = length;
+        Width = width;
+        Height = height;
+    }
+
+    public double GetBaseArea()
+    {
+        return Length * Width;
+    }
+
+    public double GetVolume()
+    {
+        return GetBaseArea() * Height;
+    }
+
+    public double GetSurfaceArea()
+    {
+        return 2 * (Length * Width + Length * Height + Width * Height);
+    }
+
+    public double GetDiagonal()
+    {
+        return Math.Sqrt(Length * Length + Width * Width + Height * Height);
+    }
+}
