@@ -5,6 +5,16 @@
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <StartupObject>M320.Office.Program</StartupObject>
     </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove="**\obj\**\*.cs" />
+        <Compile Remove="**\bin\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Aufgabe07\" />
+    </ItemGroup>
 
 </Project>
