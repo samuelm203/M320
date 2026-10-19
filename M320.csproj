@@ -13,8 +13,4 @@
         <Compile Remove="**\bin\**\*.cs" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Aufgabe07\" />
-    </ItemGroup>
-
 </Project>
