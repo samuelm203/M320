@@ -7,7 +7,7 @@ public class Visitor
 
     public Visitor(string lastName, string firstName)
     {
-        LastName = LastName;
-        FirstName = FirstName; 
+        LastName = lastName;
+        FirstName = firstName;
     }
 }

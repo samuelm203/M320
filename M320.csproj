@@ -5,7 +5,7 @@
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <StartupObject>M320.Office.Program</StartupObject>
+        <StartupObject>M320.Aufgabe08.Program</StartupObject>
     </PropertyGroup>
 
     <ItemGroup>

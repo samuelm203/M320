@@ -3,10 +3,10 @@
 public class Exhibit
 {
     public string Label { get; }
-    public Room Location { get; set; }
+    public Room? Location { get; set; }
 
-    public Exhibit (string label)
+    public Exhibit(string label)
     {
-        label = Label; 
+        Label = label;
     }
 }

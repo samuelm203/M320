@@ -2,49 +2,46 @@
 
 using System;
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        // 1. Museum erstellen
         Museum museum = new Museum("Kunstmuseum Luzern");
         Console.WriteLine($"Museum erstellt: {museum.Name}\n");
 
-        // 2. Räume hinzufügen (Komposition: nur der Name wird übergeben)
-        museum.AddRoom("Saal 1 - Renaissance");
-        museum.AddRoom("Saal 2 - Moderne");
-        Console.WriteLine("Räume 'Saal 1 - Renaissance' und 'Saal 2 - Moderne' wurden hinzugefügt.\n");
+        museum.AddRoom("Saal 1; Jugendstil");
+        museum.AddRoom("Saal 2; Moderne");
+        Console.WriteLine("Räume 'Saal 1; Jugendstil' und 'Saal 2; Moderne wurden hinzugefügt.\n");
 
-        // 3. Besucher erstellen und hinzufügen (Aggregation: Objekte entstehen ausserhalb)
-        Visitor v1 = new Visitor("Muster", "Max");
-        Visitor v2 = new Visitor("Meier", "Anna");
+        Visitor visitorOne = new Visitor("Kunz", "Richard");
+        Visitor visitorTwo = new Visitor("Ettlin", "Neville");
 
-        museum.AddVisitor(v1);
-        museum.AddVisitor(v2);
+        museum.AddVisitor(visitorOne);
+        museum.AddVisitor(visitorTwo);
 
         Console.WriteLine("Aktuelle Besucher im Museum:");
-        foreach (Visitor v in museum.Visitors)
+        foreach (Visitor visitor in museum.Visitors)
         {
-            Console.WriteLine($"- {v.FirstName} {v.LastName}");
+            Console.WriteLine($"- {visitor.FirstName} {visitor.LastName}");
         }
 
-        // 4. Einen Besucher wieder entfernen
-        museum.RemoveVisitor(v1);
-        Console.WriteLine($"\n{v1.FirstName} {v1.LastName} hat das Museum verlassen.");
+        museum.RemoveVisitor(visitorOne);
+        Console.WriteLine($"{visitorOne.FirstName} {visitorOne.LastName} hat das Museum verlassen.");
         Console.WriteLine($"Verbleibende Besucheranzahl: {museum.Visitors.Count}\n");
 
-        // 5. Ausstellungsstücke (Exhibits) erstellen (Aggregation: existieren zuerst auch ohne Raum)
-        Exhibit e1 = new Exhibit("Mona Lisa");
-        Exhibit e2 = new Exhibit("Sternennacht");
+        Exhibit exhibitDerKuss = new Exhibit("Der Kuss");
+        Exhibit exhibitSternennacht = new Exhibit("Sternennacht");
 
-        Console.WriteLine($"Vor der Zuweisung -> '{e1.Label}' ist in Raum: {(e1.Location?.RoomLabel ?? "Keinem Raum (Lager)")}");
+        Console.WriteLine("\nVor der Zuweisung:");
+        Console.WriteLine($"'{exhibitDerKuss.Label}' ist in Raum: {(exhibitDerKuss.Location?.RoomLabel ?? "Keinem Raum (Lager)")}");
+        Console.WriteLine($"'{exhibitSternennacht.Label}' ist in Raum: {(exhibitSternennacht.Location?.RoomLabel ?? "Keinem Raum (Lager)")}");
 
-        // 6. Ausstellungsstücke in die Räume stellen
-        museum.PutExhibitInRoom(e1, "Saal 1 - Renaissance");
-        museum.PutExhibitInRoom(e2, "Saal 2 - Moderne");
+
+        museum.PutExhibitInRoom(exhibitDerKuss, "Saal 1; Jugendstil");
+        museum.PutExhibitInRoom(exhibitSternennacht, "Saal 2; Moderne");
 
         Console.WriteLine("\nNach der Zuweisung:");
-        Console.WriteLine($"- '{e1.Label}' steht jetzt in: {e1.Location?.RoomLabel}");
-        Console.WriteLine($"- '{e2.Label}' steht jetzt in: {e2.Location?.RoomLabel}");
+        Console.WriteLine($"- '{exhibitDerKuss.Label}' steht jetzt in: {exhibitDerKuss.Location?.RoomLabel}");
+        Console.WriteLine($"- '{exhibitSternennacht.Label}' steht jetzt in: {exhibitSternennacht.Location?.RoomLabel}");
     }
 }
