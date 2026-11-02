@@ -1,5 +1,6 @@
 ﻿public abstract class Arbeiter
     {
+        // Name des Mitarbeiters
         public string Name { get; set; }
 
         public Arbeiter(string name)

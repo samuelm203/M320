@@ -1,0 +1,184 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.6 Chrome/138.0.7204.100 Electron/37.2.3 Safari/537.36" version="28.0.6">
+  <diagram id="uml-bestellsystem" name="Klassendiagramm">
+    <mxGraphModel dx="4133" dy="1623" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cust" value="Customer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="40" y="320" width="360" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="cust_a" value="- name: string&lt;br&gt;- email: string&lt;br&gt;- isMember: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="cust" vertex="1">
+          <mxGeometry y="26" width="360" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="cust_l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="cust" vertex="1">
+          <mxGeometry y="94" width="360" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cust_m" value="+ Customer(name: string, email: string, isMember: bool)&lt;br&gt;+ Name: string «get»&lt;br&gt;+ Email: string «get, set»&lt;br&gt;+ IsMember: bool «get»&lt;br&gt;- IsValidEmail(email: string): bool&lt;br&gt;+ PlaceOrder(books: Book[]): Order" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="cust" vertex="1">
+          <mxGeometry y="102" width="360" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="order" value="Order" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="500" y="320" width="360" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="order_a" value="- &lt;u&gt;nextOrderNumber: int = 1001&lt;/u&gt;&lt;br&gt;- orderNumber: int&lt;br&gt;- orderDate: DateTime&lt;br&gt;- customer: Customer&lt;br&gt;- books: List&amp;lt;Book&amp;gt;&lt;br&gt;- discountRules: List&amp;lt;IDiscountRule&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="order" vertex="1">
+          <mxGeometry y="26" width="360" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="order_l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="order" vertex="1">
+          <mxGeometry y="154" width="360" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="order_m" value="+ Order(customer: Customer, books: Book[])&lt;br&gt;+ OrderNumber: int «get»&lt;br&gt;+ OrderDate: DateTime «get»&lt;br&gt;+ Customer: Customer «get»&lt;br&gt;+ Books: IReadOnlyList&amp;lt;Book&amp;gt; «get»&lt;br&gt;+ AddDiscountRule(rule: IDiscountRule): void&lt;br&gt;+ GetDiscount(book: Book): decimal&lt;br&gt;+ GetTotal(): decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="order" vertex="1">
+          <mxGeometry y="162" width="360" height="168" as="geometry" />
+        </mxCell>
+        <mxCell id="book" value="«abstract»&lt;br&gt;&lt;i&gt;Book&lt;/i&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="1020" y="320" width="360" height="244" as="geometry" />
+        </mxCell>
+        <mxCell id="book_a" value="# title: string&lt;br&gt;# isbn: string&lt;br&gt;# basePrice: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="book" vertex="1">
+          <mxGeometry y="40" width="360" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="book_l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="book" vertex="1">
+          <mxGeometry y="108" width="360" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="book_m" value="# Book(title: string, isbn: string, basePrice: decimal)&lt;br&gt;+ Title: string «get»&lt;br&gt;+ Isbn: string «get»&lt;br&gt;+ BasePrice: decimal «get»&lt;br&gt;&lt;i&gt;+ GetPrice(): decimal&lt;/i&gt;&lt;br&gt;&lt;i&gt;+ GetTypeName(): string&lt;/i&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="book" vertex="1">
+          <mxGeometry y="116" width="360" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="pbook" value="PhysicalBook" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="640" y="700" width="540" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="pbook_a" value="- weightInGrams: int&lt;br&gt;- &lt;u&gt;ShippingCost: decimal = 2.00 {readOnly}&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="pbook" vertex="1">
+          <mxGeometry y="26" width="540" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="pbook_l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="pbook" vertex="1">
+          <mxGeometry y="74" width="540" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="pbook_m" value="+ PhysicalBook(title: string, isbn: string, basePrice: decimal, weightInGrams: int)&lt;br&gt;+ WeightInGrams: int «get»&lt;br&gt;+ GetPrice(): decimal&lt;br&gt;+ GetTypeName(): string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="pbook" vertex="1">
+          <mxGeometry y="82" width="540" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="ebook" value="EBook" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="1220" y="700" width="540" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ebook_a" value="- fileSizeMb: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="ebook" vertex="1">
+          <mxGeometry y="26" width="540" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ebook_l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="ebook" vertex="1">
+          <mxGeometry y="54" width="540" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ebook_m" value="+ EBook(title: string, isbn: string, basePrice: decimal, fileSizeMb: double)&lt;br&gt;+ FileSizeMb: double «get»&lt;br&gt;+ GetPrice(): decimal&lt;br&gt;+ GetTypeName(): string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="ebook" vertex="1">
+          <mxGeometry y="62" width="540" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="rule" value="«interface»&lt;br&gt;IDiscountRule" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="170" y="737" width="400" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="rule_l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="rule" vertex="1">
+          <mxGeometry y="40" width="400" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="rule_m" value="+ Name: string «get»&lt;br&gt;+ CalculateDiscount(book: Book, customer: Customer): decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="rule" vertex="1">
+          <mxGeometry y="48" width="400" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="nod" value="NoDiscount" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="-280" y="920" width="400" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="nod_a" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="nod" vertex="1">
+          <mxGeometry y="26" width="400" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="SEZwqEgP4gI3OyKqVqbk-1" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" vertex="1" parent="nod">
+          <mxGeometry y="54" width="400" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="nod_l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="nod" vertex="1">
+          <mxGeometry y="82" width="400" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="nod_m" value="+ Name: string «get»&lt;br&gt;+ CalculateDiscount(book: Book, customer: Customer): decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="nod" vertex="1">
+          <mxGeometry y="90" width="400" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="memd" value="MemberDiscount" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="170" y="948" width="400" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="memd_a" value="- &lt;u&gt;Rate: decimal = 0.10 {readOnly}&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="memd" vertex="1">
+          <mxGeometry y="26" width="400" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="memd_l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="memd" vertex="1">
+          <mxGeometry y="54" width="400" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="memd_m" value="+ Name: string «get»&lt;br&gt;+ CalculateDiscount(book: Book, customer: Customer): decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="memd" vertex="1">
+          <mxGeometry y="62" width="400" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ebd" value="EbookDiscount" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="620" y="920" width="400" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ebd_a" value="- &lt;u&gt;Rate: decimal = 0.15 {readOnly}&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="ebd" vertex="1">
+          <mxGeometry y="26" width="400" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ebd_l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="ebd" vertex="1">
+          <mxGeometry y="54" width="400" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ebd_m" value="+ Name: string «get»&lt;br&gt;+ CalculateDiscount(book: Book, customer: Customer): decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="ebd" vertex="1">
+          <mxGeometry y="62" width="400" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="e_co" value="" style="endArrow=none;html=1;rounded=0;verticalAlign=bottom;" parent="1" source="cust" target="order" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_co_s" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" parent="e_co" connectable="0" vertex="1">
+          <mxGeometry x="-1" relative="1" as="geometry">
+            <mxPoint x="8" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_co_t" value="0..*" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" parent="e_co" connectable="0" vertex="1">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint x="-8" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ob" value="" style="endArrow=open;endFill=0;startArrow=diamondThin;startFill=0;startSize=16;endSize=10;html=1;rounded=0;verticalAlign=bottom;" parent="1" source="order" target="book" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ob_s" value="0..*" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" parent="e_ob" connectable="0" vertex="1">
+          <mxGeometry x="-1" relative="1" as="geometry">
+            <mxPoint x="20" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ob_t" value="1..*" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" parent="e_ob" connectable="0" vertex="1">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint x="-12" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pb" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="pbook" target="book" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_eb" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="ebook" target="book" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_or" value="verwendet ▶" style="endArrow=open;endFill=0;endSize=10;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="order" target="rule" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="680" />
+              <mxPoint x="370" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_or_t" value="0..*" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" parent="e_or" connectable="0" vertex="1">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint x="8" y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SEZwqEgP4gI3OyKqVqbk-2" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0.982;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="memd" target="rule_m">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="1086" as="sourcePoint" />
+            <mxPoint x="380" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SEZwqEgP4gI3OyKqVqbk-3" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="921" as="sourcePoint" />
+            <mxPoint x="370" y="833" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SEZwqEgP4gI3OyKqVqbk-4" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="ebd">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="978" as="sourcePoint" />
+            <mxPoint x="370" y="830" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="370" y="920" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
