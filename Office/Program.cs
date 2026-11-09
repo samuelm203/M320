@@ -29,7 +29,5 @@ public class Program
             
         // Wenn wir Michael über die Basisklasse ansprechen (die Stolperfalle schlägt zu):
         gMichael.MachePause(); // Ausgabe: ...trinkt Kaffee im Pausenraum. (Basis-Methode greift!)    
-        
-        Verkaeufer
     }
 }
