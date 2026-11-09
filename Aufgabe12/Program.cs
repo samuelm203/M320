@@ -29,7 +29,6 @@ public class Program
         order3.AddDiscountRule(new NoDiscount());
         order3.PrintInvoice();
 
-        Console.WriteLine("=== Test ungültige E-Mail ===");
         foreach (string email in new[] { "keinAt.ch", "@example.ch", "a@b@c.ch", "max@domain" })
         {
             try
